@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M.C Computers | Best Refurbished Tech Around</title>
+  <style>
+    :root {
+      /* Premium High-Tech Palette */
+      --bg-dark: #070a12;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --accent-cyan: #00f0ff;
+      --accent-magenta: #ff007f;
+      --accent-green: #a3e635;
+      --accent-yellow: #ffee00;
+      --accent-purple: #8a2be2;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(138, 43, 226, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 0, 127, 0.05) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* Header with Image Logo & Refurbished Tagline */
+    header {
+      background: rgba(11, 16, 28, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.15);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      border-radius: 8px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      line-height: 1.1;
+    }
+
+    .logo-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .header-contact-btn {
+      background: linear-gradient(135deg, var(--accent-cyan), #0066ff);
+      color: #000;
+      font-weight: 800;
+      padding: 0.7rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-contact-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.7);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 1rem 2rem 1rem;
+    }
+
+    .refurbished-tag {
+      display: inline-block;
+      background: rgba(163, 230, 53, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 12px rgba(163, 230, 53, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* Sourcing Banner */
+    .part-request-banner {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem auto;
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 238, 0, 0.5);
+      border-radius: 16px;
+      padding: 1.8rem 2.2rem;
+      box-shadow: 0 0 25px rgba(255, 238, 0, 0.15), inset 0 0 15px rgba(255, 238, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .part-request-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 238, 0, 0.15), transparent);
+      transition: 0.5s;
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .part-request-content h2 {
+      color: var(--accent-yellow);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .part-request-content p {
+      color: #e2e8f0;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .request-wa-btn {
+      background: var(--accent-green);
+      color: #051408;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 0.9rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 20px rgba(163, 230, 53, 0.35);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .request-wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(163, 230, 53, 0.7);
+      background: #b6f542;
+    }
+
+    /* Showcase Image */
+    .showcase-banner {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+
+    .showcase-banner img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Search Controls */
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 1.8rem auto;
+      padding: 0 1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.9rem 1.4rem;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-light);
+      outline: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      background: rgba(30, 41, 59, 0.6);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.65rem 1.6rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-light);
+      border-color: rgba(0, 240, 255, 0.5);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent-cyan), #0077ff);
+      color: #000;
+      font-weight: 800;
+      border-color: transparent;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Product Grid & Glassmorphic Cards */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem 5rem 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 240, 255, 0.25);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background: #030712;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #030712;
+    }
+
+    .badge-group {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+      z-index: 2;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, var(--accent-magenta), var(--accent-purple));
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    }
+
+    .badge-refurbished {
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 10px rgba(163, 230, 53, 0.3);
+    }
+
+    /* Image Gallery Thumbnails */
+    .gallery-thumbs {
+      display: flex;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(3, 7, 18, 0.9);
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      object-fit: cover;
+      transition: all 0.2s ease;
+      opacity: 0.7;
+    }
+
+    .thumb.active, .thumb:hover {
+      border-color: var(--accent-cyan);
+      opacity: 1;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    }
+
+    .card-content {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .specs-list {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .specs-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      text-shadow: 0 0 10px rgba(163, 230, 53, 0.3);
+    }
+
+    .contact-card-btn {
+      background: rgba(163, 230, 53, 0.08);
+      border: 1.5px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-card-btn:hover {
+      background: var(--accent-green);
+      color: #000;
+      box-shadow: 0 0 15px rgba(163, 230, 53, 0.6);
+    }
+
+    /* No-Results Callout */
+    .no-results {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border: 2px solid var(--accent-magenta);
+      border-radius: 20px;
+      padding: 3.5rem 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 35px rgba(255, 0, 127, 0.25);
+    }
+
+    .no-results h3 {
+      font-size: 2rem;
+      color: var(--accent-yellow);
+      margin-bottom: 0.8rem;
+      font-weight: 800;
+    }
+
+    .no-results p {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .custom-request-btn {
+      display: inline-block;
+      background: var(--accent-green);
+      color: #000;
+      font-size: 1.15rem;
+      font-weight: 900;
+      padding: 1rem 2.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(163, 230, 53, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .custom-request-btn:hover {
+      transform: scale(1.05);
+      background: #b6f542;
+      box-shadow: 0 0 35px rgba(163, 230, 53, 0.8);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: rgba(11, 16, 28, 0.95);
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
+      padding: 4.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-section h2 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff, var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-section p {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .info-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2.2rem 1.2rem;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+
+    .info-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-title {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .info-detail {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      word-break: break-all;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      transition: all 0.2s ease;
+      background: rgba(0, 240, 255, 0.05);
+    }
+
+    .info-detail:hover {
+      background: var(--accent-cyan);
+      color: #000;
+      box-shadow: 0 0 15px var(--accent-cyan);
+    }
+
+    .whatsapp-btn {
+      color: var(--accent-green);
+      border-color: rgba(163, 230, 53, 0.3);
+      background: rgba(163, 230, 53, 0.05);
+    }
+
+    .whatsapp-btn:hover {
+      background: var(--accent-green);
+      color: #000;
+      box-shadow: 0 0 15px var(--accent-green);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #030712;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo-container">
+      <img src="Screenshot 2026-08-19 230218.png" alt="M.C Computers Logo" class="logo-img">
+      <div class="logo-text-group">
+        <span class="logo-title">M.C COMPUTERS</span>
+        <span class="logo-subtitle">BEST REFURBISHED TECH AROUND</span>
+      </div>
+    </a>
+    <a href="#contact" class="header-contact-btn">📩 Contact Info</a>
+  </header>
+
+  <!-- Home Section -->
+  <section class="hero">
+    <div class="refurbished-tag">♻️ Certified Refurbished Hardware</div>
+    <h1>Best Refurbished Tech Around</h1>
+    <p>Premium Tested Desktops, Gaming Laptops, Parts & Accessories at Unbeatable Prices</p>
+
+    <!-- SOURCING BANNER -->
+    <div class="part-request-banner">
+      <div class="part-request-content">
+        <h2>⚡ LOOKING FOR SPECIFIC REFURBISHED PARTS OR PCs?</h2>
+        <p>WhatsApp us right away — if we don't have it in stock, we will source quality tested tech for you!</p>
+      </div>
+      <a href="https://wa.me/27847992233?text=Hello%20MC%20Computers,%20I'm%20looking%20for%20refurbished%20tech%20or%20a%20specific%20PC%20part:" target="_blank" class="request-wa-btn">
+        💬 WhatsApp Us Your Request
+      </a>
+    </div>
+
+    <div class="showcase-banner">
+      <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" alt="M.C Computers Tech Setup">
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search refurbished desktops, laptops, screens, parts..." onkeyup="filterProducts()">
+    </div>
+    
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All Stock</button>
+      <button class="filter-btn" onclick="filterCategory('desktops', this)">Refurbished PCs</button>
+      <button class="filter-btn" onclick="filterCategory('laptops', this)">Laptops</button>
+      <button class="filter-btn" onclick="filterCategory('parts', this)">Components</button>
+      <button class="filter-btn" onclick="filterCategory('gear', this)">Peripherals</button>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <main class="products-grid" id="productsGrid">
+
+    <!-- Single Stock Item: 3.5-Inch IPS Panel Smart Screen -->
+    <div class="card" data-category="gear">
+      <div class="card-img-wrapper">
+        <div class="badge-group">
+          <span class="badge">In Stock</span>
+          <span class="badge-refurbished">Tested Refurbished</span>
+        </div>
+        <img id="mainDisplayImg" src="WhatsApp Image 2026-08-19 at 22.41.46.jpeg" alt="3.5-Inch IPS Panel Smart Screen Display">
+      </div>
+      
+      <!-- Photo Gallery Thumbnails -->
+      <div class="gallery-thumbs">
+        <img src="WhatsApp Image 2026-08-19 at 22.41.46.jpeg" class="thumb active" onclick="switchImage('WhatsApp Image 2026-08-19 at 22.41.46.jpeg', this)" alt="Display Screen Active">
+        <img src="WhatsApp Image 2026-08-19 at 22.41.45.jpeg" class="thumb" onclick="switchImage('WhatsApp Image 2026-08-19 at 22.41.45.jpeg', this)" alt="Box Front View">
+        <img src="WhatsApp Image 2026-08-19 at 22.41.46 (1).jpeg" class="thumb" onclick="switchImage('WhatsApp Image 2026-08-19 at 22.41.46 (1).jpeg', this)" alt="Turing Packaging View">
+      </div>
+
+      <div class="card-content">
+        <h2 class="card-title">3.5-Inch IPS Panel Smart Screen (Turing)</h2>
+        <ul class="specs-list">
+          <li>🖥️ Display: High-Quality 3.5" IPS Panel Smart Screen</li>
+          <li>📊 Function: Real-time PC Health & Performance Monitor</li>
+          <li>⚡ Features: Single-Click Activation & Single-Cable Solution</li>
+          <li>🌡️ Metrics: CPU, GPU, RAM, Temperature, Network & Custom Themes</li>
+          <li>♻️ Condition: Fully Tested & Certified Refurbished</li>
+        </ul>
+        <div class="card-bottom">
+          <div class="price">R300</div>
+          <a href="https://wa.me/27847992233?text=Hello%20MC%20Computers!%20I'm%20interested%20in%20buying%20the%203.5-Inch%20IPS%20Panel%20Smart%20Screen%20(R550).%20Is%20it%20available?" target="_blank" class="contact-card-btn">💬 Buy on WA</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search No-Results Callout -->
+    <div class="no-results" id="noResultsBox">
+      <h3>🔍 ITEM NOT IN CURRENT STOCK? NO PROBLEM!</h3>
+      <p>We source certified refurbished tech and PC parts directly. Click below to WhatsApp us your request!</p>
+      <a href="#" id="customWhatsappLink" target="_blank" class="custom-request-btn">
+        💬 WhatsApp Us What You Need
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <h2>Ready to Order Your Refurbished Tech?</h2>
+      <p>Reach out directly to place an order, request custom build specs, or check inventory.</p>
+
+      <div class="contact-info-grid">
+        <div class="info-box">
+          <div class="info-icon">📞</div>
+          <div class="info-title">Direct Call</div>
+          <a href="tel:0847992233" class="info-detail">084 799 2233</a>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">💬</div>
+          <div class="info-title">WhatsApp</div>
+          <a href="https://wa.me/27847992233?text=Hello%20MC%20Computers,%20I'm%20interested%20in%20ordering%20refurbished%20tech!" target="_blank" class="info-detail whatsapp-btn">Chat on WhatsApp</a>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">✉️</div>
+          <div class="info-title">Email Us</div>
+          <a href="mailto:Mccomputers557@gmail.com?subject=MC%20Computers%20Refurbished%20Tech%20Inquiry" class="info-detail">Mccomputers557@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 M.C Computers. Best Refurbished Tech Around. Fully tested and guaranteed.</p>
+  </footer>
+
+  <script>
+    let currentCategory = 'all';
+
+    function switchImage(imgSrc, element) {
+      document.getElementById('mainDisplayImg').src = imgSrc;
+      const thumbs = document.querySelectorAll('.thumb');
+      thumbs.forEach(t => t.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    function filterCategory(category, element) {
+      currentCategory = category;
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+
+      filterProducts();
+    }
+
+    function filterProducts() {
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card');
+      const noResultsBox = document.getElementById('noResultsBox');
+      const customWhatsappLink = document.getElementById('customWhatsappLink');
+      
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const categoryMatch = (currentCategory === 'all' || card.getAttribute('data-category') === currentCategory);
+        const cardText = card.innerText.toLowerCase();
+        const searchMatch = cardText.includes(searchQuery);
+
+        if (categoryMatch && searchMatch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResultsBox.style.display = 'block';
+        const itemText = searchQuery ? searchQuery : "a specific refurbished part";
+        const encodedMsg = encodeURIComponent(`Hello M.C Computers! I searched your site for "${itemText}" but couldn't find it. Can you check if you can source this for me?`);
+        customWhatsappLink.href = `https://wa.me/27847992233?text=${encodedMsg}`;
+      } else {
+        noResultsBox.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
